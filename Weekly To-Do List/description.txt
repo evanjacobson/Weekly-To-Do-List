@@ -1,0 +1,143 @@
+﻿Evan Jacobson --- Weekly To-Do List --- Final Project
+
+
+
+__________________________________________Background__________________________________________
+    This project started off as an attempt to create a weekly to-do list, hence its name. However, I ended up building a program
+which can handle as many weeks of data as you would like to add. The program has 3 main features: a "daily" to-do list, a slot machine,
+and a weekly to-do list. The daily and weekly to-do lists are implemented with basically the same code (I worked hard to implement)
+the daily to-do list in a less-resource-intensive way but it took too long and I ran out of time). The program also features color-coding
+of classes, repeating activities, a clickable calendar, a syllabus library, and several helpful settings (auto-save and auto-load,
+the choice between file-size optimization and record-keeping). 
+
+
+
+
+__________________________________________DEFAULT Settings__________________________________________
+- Auto-Save is enabled by default: any changes are automatically saved
+- Auto-Load is enabled by default: the program will automatically load your most recent file upon opening the program
+- Storage of deleted entries is disabled by default: the program will remove deleted, non-repeating entries, as well as repeating entries that have
+"all instances" deleted. You can toggle this option, but if you choose to disable it, it will immediately get rid of any deleted entries. If enabled,
+you have the option to see deleted entries on the weekly and daily lists.
+- you can add and remove classes, as well as edit the colors for classes. 
+- the "misc" class is always on the list by default, and can not be removed. this prevents certain errors from occurring throughout the program, 
+where it is dependent on a class instance.
+- the default file can be chosen in settings with the OpenFileDialog, but it will be overridden when you open or create a new list
+- you can purge all entries (completed and deleted) to make the file smaller and have the program run more efficiently
+
+
+
+
+__________________________________________How to Use "Weekly To-Do List"__________________________________________
+
+************************* File Management: A file is always required when using the application *************************
+When you open the application for the first time, it will give you a popup reading "Auto-Load is enabled, but there is no file found. 
+Please Open or Create a new file, or disable Auto-Load." This ensures that when you add to the list, it is actually able to save. 
+This message box will also be shown on any other window if there is no file loaded. 
+
+
+
+************************* Menu Items: Global *************************
+
+--------File--------
+"New List"
+    ---- clicking "New List" will either auto-save (if enabled) or give you the option to save before generating and loading a new list file via 
+    SaveFileDialog. The new list will also be automatically added into the default settings. If auto-load is enabled, it will be the new default list
+"Open List"
+    ---- clicking "Open list" will either auto-save (if enabled) or give you the option to save before opening the OpenFileDialog, loading that list,
+    and making that file the new default file
+"Save"
+    ---- "Save" will save the file without opening a SaveFileDialog, if the option is available
+"Save As"
+    ---- "SaveAs" will open a SaveFileDialog for your current file
+"Exit"
+    ---- "Exit" will either auto-save (if enabled) or give you the option to save before terminating the program
+
+--------List--------
+"Add Items"
+    ---- "Add Items" allows you to create new to-do list items. The assignment name cannot be more than 16 characters. This allows a better viewing 
+    experience for the slot machine. In this screen, you can set the assignment name, choose the class, add the estimated time to complete the task,
+    set the "Do" date (date to complete it) and the "due" date (date it's due). You can also choose to have the item be a repeating event, and add notes. 
+
+"Settings"
+    ---- "Settings" gives you the options to change various main features of the program. You can add classes + their color, edit class colors, remove classes,
+    choose a default file, and toggle auto-load, storage of deleted items, and auto-save. 
+
+--------View--------
+"Calendar"
+    ---- "Calendar" opens up a calendar where you can select a day and it will automatically open up that day's To-Do List
+"Syllabus Library"
+    ---- "Syllabus Library" opens up a window where you can add, remove, and open files. It stores only the local paths to the files so it has a very minimal 
+    additional storage cost.
+
+--------Help--------
+"Read Me"
+    ---- Opens this file
+"About"
+    ---- Opens an "about" window with information on the version, creator, etc.
+
+
+
+************************* Additional Menu Items on the List Screens *************************
+
+--------Sort List--------
+"Default"
+    ---- Default sorting, based on the algorithm to determine which items go on which days
+"Time To Complete - Ascending"
+    ---- Uses a simple LINQ query to order the list based on time to complete, from smallest to largest
+"Time To Complete - Descending"
+    ---- Uses a simple LINQ query to order the list based on time to complete, from largest to smallest
+
+
+
+************************* The Home Screen *************************
+    The Home screen is the hub for the program. It is where you can navigate between the different displays. One cool feature to note is that the
+date on the "Today's To-Do List" is dynamic, and it will always show the current month and day!
+
+
+
+************************* The "Today" Screen *************************
+    I spent a lot of time with the algorithms for populating the list items, and I ran out of time to properly develop the algorithms for this page,
+so I reused the algorithm from the "Weekly To-Do List" screen. With that being said, this screen does function differently. You can look at each
+day individually which is nice. Also, the "Calendar" menu item, when clicked, will open into this screen for whichever day you choose and populate
+its items. You can toggle the ability to see completed items, and if deleted-item-storage is enabled in Settings, you can also toggle viewing those.
+You can click on any item and it will show its details, and give you the ability to mark it completed or deleted. You can also sort the list items by 
+time to complete. If you double click the label that shows the day, it will go back to the current date. 
+
+
+
+************************* The "Slot Machine" Screen *************************
+    The slot machine was my favorite part of the whole project to create. It uses 3 Listboxes and a timer to randomly choose 3 to-do items. All of the 
+ListBoxItem backgrounds are the colors that are chosen in the Settings screen for that class. If 2 or more are detected, you win the game and get to do 
+that item. The lever is a custom animation using two ellipses and several DoubleAnimations. It took a while to get it right but I really like it. 
+Also, I spent a while custom-editing and tweaking sound effects for the slot machine so make sure to have the sound on!
+
+
+
+************************* The "Weekly To-Do List" Screen *************************
+This screen shows a weekly-view of the to-do list. You can toggle the ability to see completed items, and if deleted-item-storage is enabled in Settings, 
+you can also toggle viewing those. You can click on any item and it will show its details, and give you the ability to mark it completed or deleted. All of
+the ListBoxItem backgrounds are the colors that are chosen in the Settings screen for that class. You can choose to view different weeks by clicking "Next Week"
+or "Last Week" as well. You can also sort the list items by time to complete.
+
+
+
+************************* Navigation Between Screens *************************
+There is a "back" button on all of the main screens to ensure easy navigation.
+
+
+
+************************* How Are Items Stored and Managed? *************************
+This was by far the most difficult part of the project. I spent literally 3 days on figuring out how to delete individual instances of repeating items, and probably over 
+30 hours trying to solve this problem in 4 different ways. My goal was to optimize the algorithm for file size, because potentially indefinitely-repeating items would crash 
+the program. I ended up deciding on an algorithm in which it detects whether or not the item is repeating, and it then calculates the dates which the item would repeat on. 
+For deleting and completing repeating events, the solution was to store two List<DateTime> in each instance of a list entry, and then add each deleted date to the list, and check
+the list when populating the events into their respective days. Ultimately, the algorithm was not very complicated, but it took me so long to figure out the right way to attack this
+problem. 
+
+
+
+
+__________________________________________Packages/Libraries Used__________________________________________
+- Extended.Wpf.Toolkit (Version 3.4.0) by Xceed
+--- Color Picker in List-->Settings

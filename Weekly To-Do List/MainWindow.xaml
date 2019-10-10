@@ -1,0 +1,100 @@
+﻿<Window x:Class="Weekly_ToDo_List.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weekly_ToDo_List"
+        mc:Ignorable="d"
+        Title="My To-Do List" Height="450" Width="800" Background="LightGray" ResizeMode="CanMinimize">
+    
+    <DockPanel>
+        <Menu x:Name="menu1" Width="Auto" DockPanel.Dock="Top">
+            <!-- File Menu -->
+            <MenuItem Header="File">
+                <MenuItem Header="New List" x:Name="new_menuItem" Click="New_Click" />
+                <MenuItem Header="Open List" x:Name="open_menuItem" Click="Load_Click"/>
+                <MenuItem Header="Save" Name="save_menuItem" Click="Save_Click" />
+                <MenuItem Header="Save As" x:Name="saveAs_menuItem" Click="SaveAs_Click" />
+                <Separator/>
+                <MenuItem Header="Exit" x:Name="exit_menuItem"  Click="Exit_Click"  />
+            </MenuItem>
+
+
+            <!--MANAGE THIS LIST-->
+            <MenuItem Header="List">
+                <MenuItem Header="Add Items" x:Name="add_items" Click="Add_Items" />
+                <MenuItem Header="Settings" x:Name="settings" Click="Settings_Click" />
+            </MenuItem>
+            <!-- VIEW menu -->
+            <MenuItem Header="View">
+                <MenuItem Header="Calendar" x:Name="Calendar" Click="Calendar_Click" />
+                <MenuItem Header="Syllabus Library" x:Name="Syllabus_Library" Click="Syllabus_Click"/>
+            </MenuItem>
+            
+            <!-- Help Menu -->
+            <MenuItem Header="Help">
+                <MenuItem Header="Read Me" x:Name="readme_menuItem" Click="Read_Me_Click"/>
+                <MenuItem Header="About" x:Name="about_menuItem" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Label Content="How Will You Decide Your Next Task?" Margin="133,33,133,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="70" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="1,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="0.996" ScaleX="0.994"/>
+                        <SkewTransform AngleX="-19.134" AngleY="-0.068"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-10.078" Y="8.127"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Canvas Name="Selection_Canvas" Margin="26,98,26,34" Background="Green">
+
+                <StackPanel Canvas.Bottom="22" Canvas.Left="52">
+                    <Label Content="Today's To-Do List" HorizontalContentAlignment="Center" FontSize="13"/>
+                    <Button Background="Transparent" Click="Today_ToDoList" BorderThickness="0" >
+                        <Canvas Width="180" Height="180">
+                            <Image Width="180" Height="180">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="180" UriSource="C:\Users\Administrator\source\repos\Weekly ToDo List\Weekly ToDo List\bin\Debug\today.png"/>
+                                </Image.Source>
+                            </Image>
+                            <Label x:Name="MonthLabel" Content="Dec" HorizontalContentAlignment="Center" FontSize="40" Padding="0" Foreground="White" Canvas.Left="53" Height="54" Width="72" Canvas.Top="5"/>
+                            <Label x:Name="DayLabel" Content="17" HorizontalContentAlignment="Center" FontSize="90" Padding="0" Canvas.Left="40" Canvas.Top="45" Height="100" Width="96"/>
+                        </Canvas>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Canvas.Bottom="22" Canvas.Left="284">
+                    <Label Content="Slot Machine" HorizontalContentAlignment="Center" FontSize="13"/>
+                    <Button Background="Transparent" Click="Slot_Machine" BorderThickness="0">
+                        <Image Width="180" Height="180">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="180" UriSource="C:\Users\Administrator\source\repos\Weekly ToDo List\Weekly ToDo List\bin\Debug\slot.png"/>
+                            </Image.Source>
+                        </Image>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Canvas.Bottom="22" Canvas.Right="52">
+                    <Label Content="Weekly To-Do List" HorizontalContentAlignment="Center" FontSize="13"/>
+                    <Button Background="Transparent" Click="To_Do_List" BorderThickness="0">
+                        <Image Width="180" Height="180">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="180" UriSource="C:\Users\Administrator\source\repos\Weekly ToDo List\Weekly ToDo List\bin\Debug\to-do-list.png"/>
+                            </Image.Source>
+                        </Image>
+                    </Button>
+                </StackPanel>
+
+            </Canvas>
+
+
+        </Grid>
+    </DockPanel>
+
+
+
+
+    <!---->
+</Window>

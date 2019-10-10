@@ -1,0 +1,103 @@
+﻿<Window x:Class="Weekly_ToDo_List.List"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weekly_ToDo_List"
+        mc:Ignorable="d"
+        Title="To-Do List" Height="450" Width="800">
+    <DockPanel>
+        <Menu x:Name="menu1" Width="Auto" DockPanel.Dock="Top">
+            <!-- File Menu -->
+            <MenuItem Header="File">
+                <MenuItem Header="New List" x:Name="new_menuItem" Click="New_Click"/>
+                <MenuItem Header="Open List" x:Name="open_menuItem" Click="Load_Click"/>
+                <MenuItem Header="Save" x:Name="save_menuItem" Click="Save_Click" />
+                <MenuItem Header="Save As" x:Name="saveAs_menuItem" Click="SaveAs_Click" />
+                <Separator/>
+                <MenuItem Header="Exit" x:Name="exit_menuItem"  Click="Exit_Click"  />
+            </MenuItem>
+
+
+            <!--MANAGE THIS LIST-->
+            <MenuItem Header="List">
+                <MenuItem Header="Add Items" x:Name="add_items" Click="Add_Items" />
+                <MenuItem Header="Settings" x:Name="settings" Click="Settings_Click" />
+            </MenuItem>
+
+            <!-- VIEW menu -->
+            <MenuItem Header="View">
+                <MenuItem Header="Calendar" x:Name="Calendar" Click="Calendar_Click" />
+                <MenuItem Header="Syllabus Library" x:Name="Syllabus_Library" Click="Syllabus_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Sort List">
+                <MenuItem IsChecked="True" Header="Default" x:Name="Sort_Default" Click="Sort_Default_Click"/>
+                <MenuItem Header="Time To Complete - Ascending" x:Name="Time_Ascending" Click="Time_Ascending_Click"/>
+                <MenuItem Header="Time To Complete - Descending" x:Name="Time_Descending" Click="Time_Descending_Click"/>
+            </MenuItem>
+
+            <!-- Help Menu -->
+            
+            <MenuItem Header="Help">
+                <MenuItem Header="Read Me" x:Name="readme_menuItem" Click="Read_Me_Click"/>
+                <MenuItem Header="About" x:Name="about_menuItem" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="27*"/>
+                <RowDefinition Height="296*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="34*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="106*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="88*"/>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="106*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="Sunday"  Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
+            <ListBox Name="Monday" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ListBox Name="Tuesday" Grid.Column="6" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
+            <ListBox Name="Wednesday" Grid.Column="9" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ListBox Name="Thursday" Grid.Column="11" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
+            <ListBox Name="Friday" Grid.Column="14" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ListBox Name="Saturday" Grid.Column="16" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Label Name="Sunday_Label" Content="Sunday" Grid.Column="1" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Name="Monday_Label" Content="Monday" Grid.Column="4" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            <Label Name="Tuesday_Label" Content="Tuesday" Grid.Column="6" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Name="Wednesday_Label" Content="Wendesday" Grid.Column="9" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            <Label Name="Thursday_Label" Content="Thursday" Grid.Column="11" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Name="Friday_Label" Content="Friday" Grid.Column="14" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            <Label Name="Saturday_Label" Content="Saturday" Grid.Column="16" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            <Label Name="Week_Label" Content="Week Of 12/17/2018" Grid.Column="7" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="16" VerticalAlignment="Top" Grid.ColumnSpan="5"  Grid.RowSpan="3" Height="31"/>
+            <Button Content="Last Week" Grid.Column="6" Margin="7,0,6,0" Grid.Row="1" VerticalAlignment="Top" Click="Last_Week_Click" Height="20" Grid.RowSpan="2"/>
+            <Button Content="Next Week" Grid.Column="12" Margin="6,0,1,0" Grid.Row="1" VerticalAlignment="Top" Click="Next_Week_Click" Height="20" Grid.RowSpan="2"/>
+            <Button Content="Back" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Click="Button_Click"/>
+            <Button Content="This Week" Grid.Column="9" HorizontalAlignment="Stretch"  Grid.Row="7" VerticalAlignment="Stretch" Click="This_Week_Click"/>
+            <CheckBox Name="DeletedCheckBox" Content="Show Deleted" Grid.Column="4" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="7" VerticalAlignment="Top" RenderTransformOrigin="1.721,-0.071" Width="101"  Checked="Refresh" Unchecked="Refresh" Grid.ColumnSpan="2"/>
+            <CheckBox Name="CompletedCheckBox" Content="Show Completed" Grid.Column="14" HorizontalAlignment="Left" Margin="0,4,0,0" Grid.Row="7" VerticalAlignment="Top" RenderTransformOrigin="1.721,-0.071" Width="122" Checked="Refresh" Unchecked="Refresh" Grid.ColumnSpan="3"/>
+
+        </Grid>
+    </DockPanel>
+</Window>

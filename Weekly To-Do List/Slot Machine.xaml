@@ -1,0 +1,129 @@
+﻿<Window x:Class="Weekly_ToDo_List.SlotMachine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weekly_ToDo_List"
+        mc:Ignorable="d"
+        Title="Slot Machine" Height="450" Width="800" ResizeMode="CanMinimize">
+    <DockPanel>
+        <Menu x:Name="menu1" Width="Auto" DockPanel.Dock="Top">
+            <!-- File Menu -->
+            <MenuItem Header="File">
+                <MenuItem Header="New List" x:Name="new_menuItem" Click="New_Click"/>
+                <MenuItem Header="Open List" x:Name="open_menuItem" Click="Load_Click"/>
+                <MenuItem Header="Save" x:Name="save_menuItem"  Click="Save_Click"/>
+                <MenuItem Header="Save As" x:Name="saveAs_menuItem" Click="SaveAs_Click" />
+                <Separator/>
+                <MenuItem Header="Exit" x:Name="exit_menuItem"  Click="Exit_Click"  />
+            </MenuItem>
+
+
+            <!--MANAGE THIS LIST-->
+            <MenuItem Header="List">
+                <MenuItem Header="Add Items" x:Name="add_items" Click="Add_Items" />
+                <MenuItem Header="Settings" x:Name="settings" Click="Settings_Click" />
+            </MenuItem>
+            <!-- VIEW menu -->
+            <MenuItem Header="View">
+                <MenuItem Header="Calendar" x:Name="Calendar" Click="Calendar_Click" />
+                <MenuItem Header="Syllabus Library" x:Name="Syllabus_Library" Click="Syllabus_Click"/>
+            </MenuItem>
+            
+            <!-- Help Menu -->
+            <MenuItem Header="Help">
+                <MenuItem Header="Read Me" x:Name="readme_menuItem" Click="Read_Me_Click"/>
+                <MenuItem Header="About" x:Name="about_menuItem" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Grid Name="SlotsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="19*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="29*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="47*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle RadiusX="30" RadiusY="20" Name="Viewer1" Grid.Column="5" Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Grid.Row="6" Stroke="Black" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
+            <!--<TextBlock Name="Slot" Grid.Column="2" FontWeight="DemiBold" FontSize="16" TextAlignment="Center"  Padding="10,10,10,10" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 " Background="LightSteelBlue"/>-->
+            <ListBox Name="SlotBox1" Grid.Column="6" FontWeight="DemiBold" FontSize="16"  Grid.Row="7"  Background="LightSteelBlue" VerticalAlignment="Stretch" Grid.RowSpan="3">
+                <ListBoxItem x:Name="Slot1" VerticalContentAlignment="Center" Content="" FontSize="16" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Background="LightSteelBlue"  Grid.IsSharedSizeScope="True" Height="70" RenderTransformOrigin="0.492,1.108"/>
+            </ListBox>
+            <Rectangle Name="Viewer2" RadiusX="30" RadiusY="20" Grid.Column="9" Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Grid.Row="6" Stroke="Black" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
+            <!--<TextBlock Name="Slot" Grid.Column="2" FontWeight="DemiBold" FontSize="16" TextAlignment="Center"  Padding="10,10,10,10" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 " Background="LightSteelBlue"/>-->
+            <ListBox Name="SlotBox2" VerticalAlignment="Stretch" Grid.RowSpan="3" Grid.Column="10" FontWeight="DemiBold" FontSize="16"  Grid.Row="7"  Background="LightSteelBlue">
+                <ListBoxItem x:Name="Slot2" VerticalContentAlignment="Center" Content="" FontSize="16" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Background="LightSteelBlue"  Grid.IsSharedSizeScope="True" Height="70"/>
+            </ListBox>
+            <Rectangle Name="Viewer3" RadiusX="30" RadiusY="20" Grid.Column="13" Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Grid.Row="6" Stroke="Black" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
+            <!--<TextBlock Name="Slot" Grid.Column="2" FontWeight="DemiBold" FontSize="16" TextAlignment="Center"  Padding="10,10,10,10" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 " Background="LightSteelBlue"/>-->
+            <ListBox Name="SlotBox3" Grid.Column="14" FontWeight="DemiBold" FontSize="16"  Grid.Row="7" Grid.RowSpan="3" Background="LightSteelBlue" VerticalAlignment="Stretch">
+                <ListBoxItem  VerticalContentAlignment="Center" x:Name="Slot3" Content="" FontSize="16" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Background="LightSteelBlue"  Grid.IsSharedSizeScope="True" Height="70"/>
+            </ListBox>
+            <!--<Rectangle  Grid.ColumnSpan="13" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="-1" Fill="White" Grid.RowSpan="6" Grid.Row="3" Grid.Column="2"/>-->
+            <TextBlock Name="Jackpot" Visibility="Hidden" HorizontalAlignment="Center" Grid.Column="8" TextWrapping="Wrap" Text="JACKPOT!" FontSize="44" VerticalAlignment="Top" Grid.ColumnSpan="5" Height="52" Grid.Row="3" Margin="5,0,3,0" Width="186"/>
+            <TextBlock Name="Loser"  Visibility="Hidden" Grid.Column="9" TextWrapping="Wrap" Text="Try Again" FontSize="38" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="52" Grid.Row="3"/>
+            <TextBlock Name="Winner"  Visibility="Hidden" HorizontalAlignment="Center"  Grid.Column="10" TextWrapping="Wrap" Text="Winner!" FontSize="38" VerticalAlignment="Top" Height="52" Grid.Row="3" Width="132"/>
+            <Rectangle Panel.ZIndex="-100"  Grid.ColumnSpan="15" Grid.Column="3" Fill="#FFF4F4F5" Height="100" Grid.RowSpan="4" Stroke="Black" VerticalAlignment="Top" RadiusY="112.5" RadiusX="112.5" Grid.Row="3"/>
+            <Rectangle Panel.ZIndex="-10" Grid.ColumnSpan="15" Grid.Column="3" Fill="HotPink" Grid.Row="4" Grid.RowSpan="13" Stroke="Black"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Grid.Row="14" Stroke="Black" Width="575" Grid.ColumnSpan="15" Grid.Column="3" Grid.RowSpan="3"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="15" VerticalAlignment="Stretch" Grid.ColumnSpan="11">
+            </Border>
+            <Canvas x:Name="LeverAnimationBoard"  Panel.ZIndex="-100" Grid.Column="18" Margin="0,0,4,0" Grid.RowSpan="7" RenderTransformOrigin="0.483,0.624" Grid.Row="4">
+                <Button  Name="Lever" Opacity="100" OpacityMask="Transparent" Background="Transparent"  BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Button_Click" Height="146" Width="63"/>
+                <Ellipse Name="LeverLever" Panel.ZIndex="-100" Fill="#FFF4F4F5" Height="137" Stroke="Black" Width="7" RenderTransformOrigin="0.5,0.5" Canvas.Top="12">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="10.27"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse Name="LeverBall" Panel.ZIndex="-100" Fill="Red" HorizontalAlignment="Left" Height="22" Stroke="Black" VerticalAlignment="Top" Width="22" Canvas.Left="5" RenderTransformOrigin="0.508,0.523" Canvas.Top="2"/>
+            </Canvas>
+            <Rectangle Grid.ColumnSpan="15" Fill="PaleGoldenrod" Panel.ZIndex="-1" HorizontalAlignment="Stretch" Grid.Row="5" Grid.RowSpan="8" Stroke="Black" VerticalAlignment="Stretch" Grid.Column="3"/>
+            <Button Content="Back" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Click="Button_Click_1"/>
+            <RadioButton Checked="Switch_Slots" Unchecked="Switch_Slots" IsChecked="True" Name="TodaysItems" Grid.ColumnSpan="3" Content="Today's Items" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="18" VerticalAlignment="Stretch" />
+            <RadioButton Checked="Switch_Slots" Unchecked="Switch_Slots" Name="WeekItems" Grid.ColumnSpan="4" Content="This Week's Items" Grid.Column="15" HorizontalAlignment="Stretch" Grid.Row="18" VerticalAlignment="Stretch" Margin="6,0,0,0" />
+        </Grid>
+    </DockPanel>
+</Window>
